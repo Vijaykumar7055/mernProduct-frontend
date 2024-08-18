@@ -30,9 +30,9 @@ const BookCard = ({ data, favourite }) => {
     <div>
       <Link
         to={`/view-book-details/${data._id}`}
-        className="block no-underline"
+        className="block no-underline px-5"
       >
-        <div className="bg-zinc-800 rounded-lg p-4 flex flex-col hover:bg-zinc-700 transition-colors duration-300">
+        <div className="bg-zinc-800 pb-3 rounded-lg  flex flex-col w-full hover:bg-zinc-700 transition-colors duration-300">
           <div className="bg-zinc-900 rounded-lg overflow-hidden flex items-center justify-center mb-4">
             <img
               src={data.url}
@@ -40,17 +40,18 @@ const BookCard = ({ data, favourite }) => {
               alt={data.title}
             />
           </div>
-          <div className="flex flex-col flex-grow">
+          <div className="flex mx-2 md:flex-col items-center justify-between md:justify-center flex-grow">
             <h2 className="text-xl text-zinc-200 font-semibold truncate">
               {data.title}
             </h2>
             <p className="mt-1 text-zinc-200 font-medium text-lg truncate">
               {data.author}
             </p>
-            <p className="mt-2 text-zinc-200 font-bold text-xl">
+           
+          </div>
+          <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
               ₹{data.price}
             </p>
-          </div>
         </div>
       </Link>
       {favourite && (

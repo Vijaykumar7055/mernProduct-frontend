@@ -85,7 +85,7 @@ const About = () => {
         </div>
 
         {/* Our Achievements Section */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <h2 className="text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600">
             Our Achievements
           </h2>
@@ -118,10 +118,10 @@ const About = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Testimonials Section */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <h2 className="text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">
             What Our Clients Say
           </h2>
@@ -148,10 +148,10 @@ const About = () => {
               <p className="text-sm text-yellow-300 mt-4">- Client Name</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Meet the Team Section */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <h2 className="text-4xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">
             Meet the Team
           </h2>
@@ -187,7 +187,7 @@ const About = () => {
               <p className="text-gray-400">Role/Position</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Call to Action */}
         <div className="text-center">

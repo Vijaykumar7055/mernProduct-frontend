@@ -3,7 +3,7 @@ import heroImg from "./hero.png";
 
 const Hero = () => {
   return (
-    <div className="h-full flex flex-col lg:flex-row bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 p-8">
+    <div className="h-full  flex flex-col lg:flex-row bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 p-8">
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left space-y-6">
         <h1 className="text-5xl lg:text-7xl font-bold text-yellow-200">
           Discover Your Next Great Read

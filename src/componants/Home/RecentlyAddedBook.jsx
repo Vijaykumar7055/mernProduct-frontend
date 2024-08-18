@@ -27,7 +27,7 @@ const RecentlyAddedBook = () => {
   }, []);
 
   return (
-    <div className="mt-8 px-4">
+    <div className="mt-8 ">
       <h1 className="text-4xl text-yellow-100 font-bold text-center mb-12">
         Recently Added Products
       </h1>
