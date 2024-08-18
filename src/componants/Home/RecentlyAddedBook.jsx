@@ -28,16 +28,18 @@ const RecentlyAddedBook = () => {
 
   return (
     <div className="mt-8 px-4">
-      <h1 className="text-3xl text-yellow-100">Recently Added Product</h1>
-      <div className="my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <h1 className="text-4xl text-yellow-100 font-bold text-center mb-12">
+        Recently Added Products
+      </h1>
+      <div className="my-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {data.length > 0 ? (
           data.map((item, i) => (
-            <div key={i}>
+            <div key={i} className="transform hover:scale-105 transition duration-300">
               <BookCard data={item} />
             </div>
           ))
         ) : (
-          <p>No books available</p> // Handle empty state
+          <p className="text-center text-gray-400 text-xl">No books available</p> // Handle empty state
         )}
       </div>
     </div>

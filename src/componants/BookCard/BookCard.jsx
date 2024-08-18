@@ -1,26 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios"; // Make sure axios is imported
+import axios from "axios";
 
 const BookCard = ({ data, favourite }) => {
   console.log(data);
 
-  // Correct the headers setup
-  const headers = {
-    id: localStorage.getItem("id"),
-    authorization: `Bearer ${localStorage.getItem("token")}`, // Retrieve the token correctly
-    bookid: data._id,
-  };
-
   const handleRemoveBook = async () => {
+   const headers= {
+      id: localStorage.getItem("id"),
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+      bookid: data._id,
+    }
     try {
-      const response = await axios.delete(
-        "https://mernproduct-1.onrender.com/api/v1/remove-book-from-favourate",
-        { headers }
+      const response = await axios.put(
+        "https://mernproduct-1.onrender.com/api/v1/remove-book-from-favorite",
+        {}, // You can send an empty object if there's no body data to send
+        {
+          headers
+        }
       );
       alert(response.data.message);
     } catch (error) {
-    console.log("Error removing book:", error);
+      console.log("Error removing book:", error);
+      alert("Failed to remove the book from favorites.");
     }
   };
 

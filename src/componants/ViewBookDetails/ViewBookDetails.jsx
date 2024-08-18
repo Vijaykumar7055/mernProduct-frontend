@@ -5,12 +5,15 @@ import { FiShoppingCart, FiHeart } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import Modal from "../Model/Model";
 
 const ViewBookDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [modalMessage, setModalMessage] = useState(""); // State for modal message
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
@@ -40,21 +43,29 @@ const ViewBookDetails = () => {
   const handleFavorite = async () => {
     try {
       const response = await axios.put("https://mernproduct-1.onrender.com/api/v1/add-book-to-favorite", {}, { headers });
-      alert(response.data.message);
+      setModalMessage(response.data.message);
+      setIsModalOpen(true);
     } catch (error) {
       console.error("Error adding book to favorites:", error);
-      alert("Error adding book to favorites");
+      setModalMessage("Error adding book to favorites");
+      setIsModalOpen(true);
     }
   };
 
   const handleFCard = async () => {
     try {
       const response = await axios.put("https://mernproduct-1.onrender.com/api/v1/add-to-cart", {}, { headers });
-      alert(response.data.message);
+      setModalMessage(response.data.message);
+      setIsModalOpen(true);
     } catch (error) {
       console.error("Error adding book to cart:", error);
-      alert("Error adding book to cart");
+      setModalMessage("Error adding book to cart");
+      setIsModalOpen(true);
     }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   if (loading) return <div className="text-center text-white mt-10">Loading...</div>;
@@ -100,6 +111,9 @@ const ViewBookDetails = () => {
         <p className="text-sm md:text-lg mb-4 text-gray-300">{data.desc}</p>
         {/* Add more book details as needed */}
       </div>
+
+      {/* Modal */}
+      {isModalOpen && <Modal message={modalMessage} onClose={closeModal} />}
     </div>
   );
 };

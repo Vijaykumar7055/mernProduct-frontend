@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { IoMdMenu, IoMdClose, IoMdSunny, IoMdMoon } from "react-icons/io";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import logo from "../Navbar/log2o.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +65,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <img className="h-10 mr-4" src="" alt="logo" />
+          <img className="h-10 mr-4 my-3" src={logo} alt="logo" />
           <h1 className="text-2xl font-semibold">Logo</h1>
         </motion.div>
 
