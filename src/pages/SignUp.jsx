@@ -29,7 +29,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post("https://mernproduct-1.onrender.com/api/v1/sign-up", values);
+      const response = await axios.post("http://localhost:1010/api/v1/sign-up", values);
       console.log(response.data);
       navigate("/login");
     } catch (error) {

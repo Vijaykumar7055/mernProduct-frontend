@@ -30,7 +30,7 @@ const Login = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "https://mernproduct-1.onrender.com/api/v1/sign-in",
+          "http://localhost:1010/api/v1/sign-in",
           values
         );
         console.log(response.data);

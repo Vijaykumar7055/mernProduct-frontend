@@ -9,7 +9,7 @@ const RecentlyAddedBook = () => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get(
-          "https://mernproduct-1.onrender.com/api/v1/get-recent-books"
+          "http://localhost:1010/api/v1/get-recent-books"
         );
         console.log(response);
         // Ensure response.data.data is an array

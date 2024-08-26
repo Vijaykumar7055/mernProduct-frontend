@@ -6,9 +6,12 @@ const AddBook = () => {
     url: "",
     title: "",
     author: "",
-    language: "",
     price: "",
-    desc: "", // Ensure this matches the field name
+    desc: "",
+    camera: "",
+    rem: "",
+    rom: "",
+    battery: "",
   });
 
   const headers = {
@@ -25,35 +28,42 @@ const AddBook = () => {
   };
 
   const submit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-
+    e.preventDefault();
     try {
       if (
         bookData.url === "" ||
         bookData.title === "" ||
         bookData.author === "" ||
         bookData.price === "" ||
-        bookData.desc === "" || // Ensure this matches
-        bookData.language === "" // Ensure this matches
+        bookData.desc === "" ||
+        bookData.camera === "" ||
+        bookData.rem === "" ||
+        bookData.rom === "" ||
+        bookData.battery === ""
       ) {
         alert("Please fill out all fields.");
         return;
       }
 
       const response = await axios.post(
-        "https://mernproduct-1.onrender.com/api/v1/add-book",
+        "http://localhost:1010/api/v1/add-book",
         bookData,
         { headers }
       );
+
+      console.log(response);
 
       // Clear form after submission
       setBookData({
         url: "",
         title: "",
         author: "",
-        language: "",
         price: "",
-        desc: "", // Ensure this matches
+        desc: "",
+        camera: "",
+        rem: "",
+        rom: "",
+        battery: "",
       });
 
       alert("Book added successfully!");
@@ -64,9 +74,9 @@ const AddBook = () => {
 
   return (
     <div className="flex justify-center items-center py-3 bg-zinc-800">
-      <div className="rounded m-4 shadow-md w-full  p-6 bg-zinc-700">
+      <div className="rounded m-4 shadow-md w-full p-6 bg-zinc-700">
         <h1 className="text-2xl font-bold mb-4 text-center text-white">
-          Add a New Book
+          Add a New product
         </h1>
         <form onSubmit={submit} className="space-y-4">
           <div>
@@ -101,7 +111,7 @@ const AddBook = () => {
               onChange={handleChange}
               required
               className="mt-1 p-3 block w-full rounded-md border-gray-700 bg-zinc-900 text-white placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500"
-              placeholder="Enter book title"
+              placeholder="Enter Product title"
             />
           </div>
           <div>
@@ -123,24 +133,6 @@ const AddBook = () => {
             />
           </div>
           <div className="flex gap-10 w-full">
-            <div className="w-full">
-              <label
-                htmlFor="language"
-                className="block text-sm font-medium text-gray-300"
-              >
-                Language:
-              </label>
-              <input
-                type="text"
-                id="language"
-                name="language"
-                value={bookData.language}
-                onChange={handleChange}
-                required
-                className="mt-1 p-3 block w-full rounded-md border-gray-700 bg-zinc-900 text-white placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500"
-                placeholder="Enter language"
-              />
-            </div>
             <div className="w-full">
               <label
                 htmlFor="price"
@@ -174,14 +166,88 @@ const AddBook = () => {
               onChange={handleChange}
               required
               className="mt-1 p-3 block w-full rounded-md border-gray-700 bg-zinc-900 text-white placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500"
-              placeholder="Enter book description"
+              placeholder="Enter Product description"
             />
+          </div>
+          <div className="flex gap-10 w-full">
+            <div className="w-full">
+              <label
+                htmlFor="camera"
+                className="block text-sm font-medium text-gray-300"
+              >
+                Camera:
+              </label>
+              <input
+                type="text"
+                id="camera"
+                name="camera"
+                value={bookData.camera}
+                onChange={handleChange}
+                required
+                className="mt-1 p-3 block w-full rounded-md border-gray-700 bg-zinc-900 text-white placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500"
+                placeholder="Enter camera details"
+              />
+            </div>
+            <div className="w-full">
+              <label
+                htmlFor="rem"
+                className="block text-sm font-medium text-gray-300"
+              >
+                RAM:
+              </label>
+              <input
+                type="text"
+                id="rem"
+                name="rem"
+                value={bookData.rem}
+                onChange={handleChange}
+                required
+                className="mt-1 p-3 block w-full rounded-md border-gray-700 bg-zinc-900 text-white placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500"
+                placeholder="Enter RAM"
+              />
+            </div>
+            <div className="w-full">
+              <label
+                htmlFor="rom"
+                className="block text-sm font-medium text-gray-300"
+              >
+                ROM:
+              </label>
+              <input
+                type="text"
+                id="rom"
+                name="rom"
+                value={bookData.rom}
+                onChange={handleChange}
+                required
+                className="mt-1 p-3 block w-full rounded-md border-gray-700 bg-zinc-900 text-white placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500"
+                placeholder="Enter ROM"
+              />
+            </div>
+            <div className="w-full">
+              <label
+                htmlFor="battery"
+                className="block text-sm font-medium text-gray-300"
+              >
+                Battery:
+              </label>
+              <input
+                type="text"
+                id="battery"
+                name="battery"
+                value={bookData.battery}
+                onChange={handleChange}
+                required
+                className="mt-1 p-3 block w-full rounded-md border-gray-700 bg-zinc-900 text-white placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500"
+                placeholder="Enter battery details"
+              />
+            </div>
           </div>
           <button
             type="submit"
             className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            Add Book
+            Add Product
           </button>
         </form>
       </div>

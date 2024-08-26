@@ -12,7 +12,7 @@ const MyOrder = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "https://mernproduct-1.onrender.com/api/v1/get-order-history",
+          "http://localhost:1010/api/v1/get-order-history",
           { headers }
         );
         console.log(response);

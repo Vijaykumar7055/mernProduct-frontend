@@ -13,7 +13,7 @@ const AllBooks = () => {
     const fetchBooks = async () => {
       try {
         const response = await axios.get(
-          "https://mernproduct-1.onrender.com/api/v1/get-all-books"
+          "http://localhost:1010/api/v1/get-all-books"
         );
         // Ensure response.data.data is an array
         if (Array.isArray(response.data.data)) {
