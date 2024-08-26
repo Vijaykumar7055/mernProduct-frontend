@@ -13,7 +13,7 @@ const BookCard = ({ data, favourite }) => {
   const handleRemoveBook = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:1010/api/v1/remove-book-from-favorite", // Ensure this is the correct endpoint
+        "https://mernproduct-1.onrender.com/api/v1/remove-book-from-favorite", // Ensure this is the correct endpoint
         { bookid: data._id },
         { headers }
       );
