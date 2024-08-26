@@ -21,7 +21,7 @@ const ViewBookDetails = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get(`http://localhost:1010/api/v1/get-book-by-id/${id}`);
+        const response = await axios.get(`https://mernproduct-1.onrender.com/api/v1/get-book-by-id/${id}`);
         setData(response.data.data);
       } catch (error) {
         setError("Error fetching book details");
@@ -42,7 +42,7 @@ const ViewBookDetails = () => {
 
   const handleFavorite = async () => {
     try {
-      const response = await axios.put("http://localhost:1010/api/v1/add-book-to-favorite", {}, { headers });
+      const response = await axios.put("https://mernproduct-1.onrender.com/api/v1/add-book-to-favorite", {}, { headers });
       setModalMessage(response.data.message);
       setIsModalOpen(true);
     } catch (error) {

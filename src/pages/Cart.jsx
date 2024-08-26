@@ -140,7 +140,7 @@ const Cart = () => {
           ))}
           <div className="bg-gray-900 shadow-lg rounded-lg p-4 mt-6">
             <h2 className="text-lg sm:text-xl font-semibold mb-4">
-              Total: ${total.toFixed(2)}
+              Total: ₹ {total.toFixed(2)}
             </h2>
             <button
               onClick={placeOrder}

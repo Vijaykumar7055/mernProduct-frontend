@@ -16,7 +16,7 @@ const Favorite = () => {
     const fetchFavouriteBooks = async () => {
       try {
         const response = await axios.get(
-          "https://mernproduct-1.onrender.com/api/v1/get-favorite-books",
+          "https://mernproduct-1.onrender.com/v1/get-favorite-books",
           { headers }
         );
         console.log(response.data)
