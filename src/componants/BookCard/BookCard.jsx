@@ -4,53 +4,57 @@ import axios from "axios";
 
 const BookCard = ({ data, favourite }) => {
   console.log(data);
-  const headers= {
+
+  const headers = {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
-    bookid: data._id,
-  }
+  };
+
   const handleRemoveBook = async () => {
+    try {
       const response = await axios.put(
-        "https://mernproduct-1.orender.com/api/v1/add-book-to-favorite",
-        {
-          headers
-        }
+        "https://mernproduct-1.onrender.com/api/v1/remove-book-from-favorite", // Ensure this is the correct endpoint
+        { bookid: data._id },
+        { headers }
       );
       alert(response.data.message);
+    } catch (error) {
+      alert(error.response?.data?.message || "An error occurred.");
+    }
   };
 
   return (
-    <div>
-      <Link
-        to={`/view-book-details/${data._id}`}
-        className="block no-underline px-5"
-      >
-        <div className="bg-zinc-800 pb-3 rounded-lg  flex flex-col w-full hover:bg-zinc-700 transition-colors duration-300">
-          <div className="bg-zinc-900 rounded-lg overflow-hidden flex items-center justify-center mb-4">
-            <img
-              src={data.url}
-              className="object-cover w-full h-48 md:h-60 lg:h-72 transform transition-transform duration-300 hover:scale-110"
-              alt={data.title}
-            />
+    <div className="bg-zinc-900 rounded-lg shadow-lg overflow-hidden">
+      <Link to={`/view-book-details/${data._id}`} className="block no-underline">
+        <div className="relative">
+          <img
+            src={data.url}
+            className="object-cover w-full h-64 md:h-72 lg:h-80 shadow-md"
+            alt={data.title}
+          />
+        </div>
+        <div className="py-4 px-2">
+          <div className="flex flex-row justify-between mb-4">
+            <h2 className="text-xl font-semibold text-white truncate">{data.title}</h2>
+            <p className="text-lg font-medium text-gray-300 truncate text-right">{data.author}</p>
           </div>
-          <div className="flex mx-2  items-center justify-between   flex-grow">
-            <h2 className="text-xl text-zinc-200 font-semibold truncate">
-              {data.title}
-            </h2>
-            <p className="mt-1 text-zinc-200 font-medium text-lg truncate">
-              {data.author}
-            </p>
-           
+          <p className="text-lg font-bold text-white mt-2 mb-4">₹{data.price}</p>
+          <div className="flex flex-row text-gray-400 text-sm">
+            <div className="flex-1">
+              <p className="flex items-center mb-1">📸 Camera: {data.camera}</p>
+              <p className="flex items-center">🧠 RAM: {data.rem}</p>
+            </div>
+            <div className="flex-1">
+              <p className="flex items-center mb-1">💾 ROM: {data.rom}</p>
+              <p className="flex items-center">🔋 Battery: {data.battery}</p>
+            </div>
           </div>
-          <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
-              ₹{data.price}
-            </p>
         </div>
       </Link>
       {favourite && (
         <button
           onClick={handleRemoveBook}
-          className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white text-xl font-semibold px-6 py-3 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-300 transition-transform transform hover:scale-105"
+          className="w-full bg-blue-500 text-white text-lg font-semibold px-4 py-2 rounded-b-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition-transform transform hover:scale-105"
         >
           Remove from Favorites
         </button>

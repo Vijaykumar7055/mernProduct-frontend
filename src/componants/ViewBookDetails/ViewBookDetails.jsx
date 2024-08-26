@@ -21,7 +21,7 @@ const ViewBookDetails = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get(`https://mernproduct-1.onrender.com/api/v1/get-book-by-id/${id}`);
+        const response = await axios.get(`http://localhost:1010/api/v1/get-book-by-id/${id}`);
         setData(response.data.data);
       } catch (error) {
         setError("Error fetching book details");
@@ -42,7 +42,7 @@ const ViewBookDetails = () => {
 
   const handleFavorite = async () => {
     try {
-      const response = await axios.put("https://mernproduct-1.onrender.com/api/v1/add-book-to-favorite", {}, { headers });
+      const response = await axios.put("http://localhost:1010/api/v1/add-book-to-favorite", {}, { headers });
       setModalMessage(response.data.message);
       setIsModalOpen(true);
     } catch (error) {
@@ -109,7 +109,16 @@ const ViewBookDetails = () => {
           Price: <span className="text-yellow-200">₹{data.price}</span>
         </p>
         <p className="text-sm md:text-lg mb-4 text-gray-300">{data.desc}</p>
-        {/* Add more book details as needed */}
+        <div className="flex flex-row text-gray-400 text-sm">
+            <div className="flex-1">
+              <p className="flex items-center mb-1">📸 Camera: {data.camera}</p>
+              <p className="flex items-center">🧠 RAM: {data.rem}</p>
+            </div>
+            <div className="flex-1">
+              <p className="flex items-center mb-1">💾 ROM: {data.rom}</p>
+              <p className="flex items-center">🔋 Battery: {data.battery}</p>
+            </div>
+          </div>
       </div>
 
       {/* Modal */}
