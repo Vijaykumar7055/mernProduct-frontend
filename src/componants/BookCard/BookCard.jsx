@@ -45,15 +45,6 @@ const BookCard = ({ data, favourite }) => {
           <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
               ₹{data.price}
             </p>
-          <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
-              ₹{data.rom}
-            </p>
-          <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
-              ₹{data.rem}
-            </p>
-          <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
-              ₹{data.battery}
-            </p>
         </div>
       </Link>
       {favourite && (
