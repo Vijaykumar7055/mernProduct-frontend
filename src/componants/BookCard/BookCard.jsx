@@ -4,26 +4,19 @@ import axios from "axios";
 
 const BookCard = ({ data, favourite }) => {
   console.log(data);
-
+  const headers= {
+    id: localStorage.getItem("id"),
+    authorization: `Bearer ${localStorage.getItem("token")}`,
+    bookid: data._id,
+  }
   const handleRemoveBook = async () => {
-   const headers= {
-      id: localStorage.getItem("id"),
-      authorization: `Bearer ${localStorage.getItem("token")}`,
-      bookid: data._id,
-    }
-    try {
       const response = await axios.put(
-        "https://mernproduct-1.onrender.com/api/v1/remove-book-from-favorite",
-        {}, // You can send an empty object if there's no body data to send
+        "https://mernproduct-1.orender.com/api/v1/add-book-to-favorite",
         {
           headers
         }
       );
       alert(response.data.message);
-    } catch (error) {
-      console.log("Error removing book:", error);
-      alert("Failed to remove the book from favorites.");
-    }
   };
 
   return (
@@ -40,7 +33,7 @@ const BookCard = ({ data, favourite }) => {
               alt={data.title}
             />
           </div>
-          <div className="flex mx-2 md:flex-col items-center justify-between md:justify-center flex-grow">
+          <div className="flex mx-2  items-center justify-between   flex-grow">
             <h2 className="text-xl text-zinc-200 font-semibold truncate">
               {data.title}
             </h2>
@@ -51,6 +44,15 @@ const BookCard = ({ data, favourite }) => {
           </div>
           <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
               ₹{data.price}
+            </p>
+          <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
+              ₹{data.rom}
+            </p>
+          <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
+              ₹{data.rem}
+            </p>
+          <p className="mt-2 ms-2 text-zinc-200 font-bold text-xl">
+              ₹{data.battery}
             </p>
         </div>
       </Link>

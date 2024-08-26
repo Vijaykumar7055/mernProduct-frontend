@@ -57,7 +57,7 @@ const Navbar = () => {
 
 
   return (
-    <div className={`bg-zinc-800 text-white ${theme}`}>
+    <div className={`bg-zinc-800  text-white ${theme}`}>
       <div className="flex items-center justify-between px-8 py-4">
         <motion.div
           className="flex items-center"

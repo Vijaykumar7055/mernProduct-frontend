@@ -19,6 +19,7 @@ import Setting from './componants/Profile/Setting';
 import Cart from './pages/Cart';
 import AllOrders from './pages/AllOrders';
 import AddBook from './pages/AddBook';
+import Newsletter from './componants/Footer/NewsLetter';
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -70,6 +71,7 @@ const App = () => {
               <Route path="setting" element={<Setting />} />
             </Route>
           </Routes>
+          <Newsletter/>
           <Footer />
         </>
       )}
