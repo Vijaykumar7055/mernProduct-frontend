@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Assuming you're using Tailwind CSS */
+.dark {
+    /* Dark theme styles */
+    background-color: #1F2937; /* Example dark background */
+    color: #ffffff; /* Example light text color */
+  }
+  
+  .light {
+    /* Light theme styles */
+    background-color: #f5f5f5; /* Example light background */
+    color: #000000; /* Example dark text color */
+  }
+  
